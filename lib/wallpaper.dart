@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart ' as http;
+import 'package:wallpaper_app/fullscreen.dart';
 
 class Wallpapper extends StatefulWidget {
   @override
@@ -67,12 +68,22 @@ class _WallpapperState extends State<Wallpapper> {
                   mainAxisSpacing: 2,
                 ),
                 itemBuilder: (context, index) {
-                  return Container(
-                      child: Image.network(
-                        images[index]['src']["tiny"],
-                        fit: BoxFit.cover,
-                      ),
-                      color: Colors.white);
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FullScreen(
+                                    imageurl: images[index]['src']["large2x"],
+                                  )));
+                    },
+                    child: Container(
+                        child: Image.network(
+                          images[index]['src']["tiny"],
+                          fit: BoxFit.cover,
+                        ),
+                        color: Colors.white),
+                  );
                 },
               ),
             ),
