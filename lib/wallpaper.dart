@@ -24,7 +24,7 @@ class _WallpapperState extends State<Wallpapper> {
     await http.get(Uri.parse('https://api.pexels.com/v1/curated?per_page=80'),
         headers: {
           'Authorization':
-              '563492ad6f91700001000001d3b286fea10a4b1b9eab3828801ef284',
+              'API Key Paste Here',
         }).then((value) {
       Map result = jsonDecode(value.body);
       setState(() {
@@ -42,7 +42,7 @@ class _WallpapperState extends State<Wallpapper> {
         'https://api.pexels.com/v1/curated?per_page=80&page=' + page.toString();
     await http.get(Uri.parse(url), headers: {
       'Authorization':
-          '563492ad6f91700001000001d3b286fea10a4b1b9eab3828801ef284',
+          'API Key Paste Here',
     }).then((value) {
       Map result = jsonDecode(value.body);
       setState(() {
